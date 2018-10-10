@@ -1,0 +1,192 @@
+@import "../bootstrap/scss/bootstrap.scss";
+$font:"PingFangTC-Regular","微軟正黑體";
+$color-purple:#8A82CC ;
+$color-orange:#FFA782 ;
+$color-yellow:#F5D105 ;
+$color-blue:#559AC8 ;
+$color-white:#FFFFFF ;
+html body{
+    font-family: $font;
+}
+#header {
+    background-image: url(../images/Hero.png);
+    background-size: cover;
+    background-position: center center;
+    height: 380px;
+}
+#header h1 {
+    font-weight: 500;
+    font-size: 40px;
+    color: $color-white;
+    letter-spacing: 3.89px;
+    padding-top: 89px;
+}
+#header .district-select{
+    font-weight: 900;
+    padding: 15px 0px 15px 10px;
+    margin-top: 96px;
+    max-width: 480px;
+    background: rgba(255,255,255,0.70);
+    border: 3px solid $color-white;
+    border-radius: 3px;
+    font-size: 18px;
+    color: #000000;
+    line-height: 21px;
+}
+.hot-area-row{
+    background: $color-white;
+    z-index: 1;
+    position: relative;
+    top: -25px;
+    box-shadow: 0 1px 3px 0 rgba(0,0,0,0.20);
+    border-radius: 5px;
+}
+#hot-area h2{
+    font-family: "AppleSystemUIFont";
+    margin-top: 20px;
+    margin-bottom: 14px;
+    font-size: 18px;
+    color: #000000;
+}
+.hot-area-list-li{
+    margin: 0 12px;
+    font-size: 20px;
+    border-radius: 5px;
+    padding: 10px 35px;
+    cursor: pointer;
+}
+.list-purple{
+    background-color: $color-purple;
+}
+.list-purple:hover{
+    background-color:darken($color-purple,5);
+}
+.list-orange{
+    background-color: $color-orange;
+}
+.list-orange:hover{
+    background-color:darken($color-orange,5);
+}
+.list-yellow{
+    background-color: $color-yellow;
+}
+.list-yellow:hover{
+    background-color:darken($color-yellow,5);
+}
+.list-blue{
+    background-color: $color-blue;
+}
+.list-blue:hover{
+    background-color:darken($color-blue,5);
+}
+.hot-area-list-li a{
+    color: $color-white;
+    text-decoration:none;
+}
+.hr-line{
+    border-bottom: 2px dashed $color-blue;
+    margin: 50px auto 0;
+    padding: 0 5px;
+    max-width: 87.63335%;
+    height: 1px;
+}
+.down-arrow{
+    line-height: 1em;
+    background-color: $color-white;
+    color: $color-blue;
+    border: $color-blue solid 2px;
+    border-radius: 50%;
+    text-align: center;
+    font-size: 18px;
+    width: 24px;
+    height: 24px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+}
+#show-area{
+    margin-top: 65px;
+}
+#show-area h3{
+    font-weight: 600;
+    font-family: "SFNSDispl";
+    font-size: 36px;
+    margin-bottom: 24px;
+    color: $color-purple;
+}
+.show-area-li{
+    padding: 5px 40px;
+    margin-bottom: 36px;
+}
+.show-area-li-area{
+    background: $color-white;
+    box-shadow: 0 1px 3px 0 rgba(0,0,0,0.20);
+    font-size: 18px;
+}
+.show-arae-pic{
+    height: 155px;
+    // background-image: url("http://khh.travel/FileArtPic.ashx?id=705&w=1280&h=960");
+    background-size: cover;
+    background-position: center center;
+}
+.show-title{
+    margin-left: 22px;
+    position: relative;
+    top: -38px;
+    font-size: 24px;
+    font-weight: 600;
+    color: $color-white;
+}
+.open-hours{
+    margin-left: 20px;
+    padding-left: 20px;
+    background-repeat: no-repeat;
+    background-image: url(../images/icons_clock.png);
+}
+.address{
+    margin-left: 20px;
+    padding-left: 20px;
+    background-repeat: no-repeat;
+    background-image: url(../images/icons_pin.png);
+}
+.phone{
+    margin-left: 20px;
+    padding-left: 20px;
+    background-repeat: no-repeat;
+    background-image: url(../images/icons_phone.png);
+}
+.footer{
+    padding-top: 24px;
+    background-color:$color-blue;
+}
+.footer h2{
+    font-size: 18px;
+    color: $color-white;
+    font-weight: 600;
+}
+.footer a{
+    margin-top: 15px;
+    text-decoration: none;
+    color: #FFD366;
+}
+.show-area-relative{
+    position: relative;
+}
+.up-arrow{
+    position: absolute;
+    bottom: 50px;
+    right:50px;
+    position: absolute;
+    width: 24px;
+    background-repeat: no-repeat;
+    height: 24px;
+    background-size: cover;
+    background-position: center center;
+    background-image: url(../images/btn_goTop.png);
+}
+.aaa{
+    height: 155px;
+    background-size: cover;
+    background-position: center center;
+    background-image: url("http://khh.travel/FileArtPic.ashx?id=705&w=1280&h=960");
+}
