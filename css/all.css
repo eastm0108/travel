@@ -10097,6 +10097,7 @@ html body {
 }
 
 #header .district-select {
+  cursor: pointer;
   font-weight: 900;
   padding: 15px 0px 15px 10px;
   margin-top: 96px;
@@ -10128,10 +10129,10 @@ html body {
 }
 
 .hot-area-list-li {
-  margin: 0 12px;
+  margin: 0 5px;
   font-size: 20px;
   border-radius: 5px;
-  padding: 10px 35px;
+  padding: 10px 20px;
   cursor: pointer;
 }
 
