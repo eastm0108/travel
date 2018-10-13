@@ -2602,10 +2602,13 @@ var el = [
     }
 ];
 //變數宣告
+var map;
 var len = el.length;
 var showUl = document.querySelector('.how-area-list');
 var showTitle = document.querySelector('.showTitle');
 var hotBtn = document.querySelector('#hot-area');
+var markers = [];
+
 //訪回top，滾動行為
 var backTop = document.querySelector('.up-arrow');
 backTop.addEventListener('click', function (e) {
@@ -2613,6 +2616,13 @@ backTop.addEventListener('click', function (e) {
     var backTopPos = e.target.scrollTop;
     window.scrollTo({ behavior: 'smooth', top: backTopPos })
 }, false);
+//map function
+function initMap() {
+    map = new google.maps.Map(document.getElementById('map'), {
+        zoom: 9,
+        center: { lat: 22.8759419, lng: 120.4022995 },
+    });
+};
 
 //function-檢查選擇範圍(change)
 function checked(e) {
@@ -2621,6 +2631,11 @@ function checked(e) {
     var Strli = '';
     switch (strValue) {
         case '三民區':
+            // console.log(markers);
+            map = new google.maps.Map(document.getElementById('map'), {
+                center: { lat: 22.8759419, lng: 120.4022995 },
+                zoom: 9,
+            });
             for (let i = 0; i < len; i++) {
                 if (el[i].Zone == '三民區') {
                     var name = el[i].Name;
@@ -2630,11 +2645,20 @@ function checked(e) {
                     var phone = el[i].Tel;
                     showTitle.textContent = '三民區';
                     Strli += '<li class="col-md-6 show-area-li"><div class="show-area-li-area"><div class="show-arae-pic" style="background-image:url(' + pic + ')"></div><h4 class="show-title">' + name + '</h4><p class=""><span class="open-hours">' + openTime + '</span></p><p class=""><span class="address">' + address + '</span></p><p class=""><span class="phone">' + phone + '</span></p></div></li>'
+                    var marker = new google.maps.Marker({
+                        position: { lat: parseFloat(el[i].Py), lng: parseFloat(el[i].Px) },
+                        map: map,
+                        title: el[i].Name
+                    });
                 }
             }
             showUl.innerHTML = Strli;
             break;
         case '內門區':
+            map = new google.maps.Map(document.getElementById('map'), {
+                center: { lat: 22.8759419, lng: 120.4022995 },
+                zoom: 9,
+            });
             for (let i = 0; i < len; i++) {
                 if (el[i].Zone == '內門區') {
                     var name = el[i].Name;
@@ -2644,11 +2668,20 @@ function checked(e) {
                     var phone = el[i].Tel;
                     showTitle.textContent = '內門區';
                     Strli += '<li class="col-md-6 show-area-li"><div class="show-area-li-area"><div class="show-arae-pic" style="background-image:url(' + pic + ')"></div><h4 class="show-title">' + name + '</h4><p class=""><span class="open-hours">' + openTime + '</span></p><p class=""><span class="address">' + address + '</span></p><p class=""><span class="phone">' + phone + '</span></p></div></li>'
+                    var marker = new google.maps.Marker({
+                        position: { lat: parseFloat(el[i].Py), lng: parseFloat(el[i].Px) },
+                        map: map,
+                        title: el[i].Name
+                    });
                 }
             }
             showUl.innerHTML = Strli;
             break;
         case '美濃區':
+            map = new google.maps.Map(document.getElementById('map'), {
+                center: { lat: 22.8759419, lng: 120.4022995 },
+                zoom: 9,
+            });
             for (let i = 0; i < len; i++) {
                 if (el[i].Zone == '美濃區') {
                     var name = el[i].Name;
@@ -2658,11 +2691,20 @@ function checked(e) {
                     var phone = el[i].Tel;
                     showTitle.textContent = '美濃區';
                     Strli += '<li class="col-md-6 show-area-li"><div class="show-area-li-area"><div class="show-arae-pic" style="background-image:url(' + pic + ')"></div><h4 class="show-title">' + name + '</h4><p class=""><span class="open-hours">' + openTime + '</span></p><p class=""><span class="address">' + address + '</span></p><p class=""><span class="phone">' + phone + '</span></p></div></li>'
+                    var marker = new google.maps.Marker({
+                        position: { lat: parseFloat(el[i].Py), lng: parseFloat(el[i].Px) },
+                        map: map,
+                        title: el[i].Name
+                    });
                 }
             }
             showUl.innerHTML = Strli;
             break;
         case '大樹區':
+            map = new google.maps.Map(document.getElementById('map'), {
+                center: { lat: 22.8759419, lng: 120.4022995 },
+                zoom: 9,
+            });
             for (let i = 0; i < len; i++) {
                 if (el[i].Zone == '大樹區') {
                     var name = el[i].Name;
@@ -2672,11 +2714,20 @@ function checked(e) {
                     var phone = el[i].Tel;
                     showTitle.textContent = '大樹區';
                     Strli += '<li class="col-md-6 show-area-li"><div class="show-area-li-area"><div class="show-arae-pic" style="background-image:url(' + pic + ')"></div><h4 class="show-title">' + name + '</h4><p class=""><span class="open-hours">' + openTime + '</span></p><p class=""><span class="address">' + address + '</span></p><p class=""><span class="phone">' + phone + '</span></p></div></li>'
+                    var marker = new google.maps.Marker({
+                        position: { lat: parseFloat(el[i].Py), lng: parseFloat(el[i].Px) },
+                        map: map,
+                        title: el[i].Name
+                    });
                 }
             }
             showUl.innerHTML = Strli;
             break;
         case '小港區':
+            map = new google.maps.Map(document.getElementById('map'), {
+                center: { lat: 22.8759419, lng: 120.4022995 },
+                zoom: 9,
+            });
             for (let i = 0; i < len; i++) {
                 if (el[i].Zone == '小港區') {
                     var name = el[i].Name;
@@ -2686,11 +2737,20 @@ function checked(e) {
                     var phone = el[i].Tel;
                     showTitle.textContent = '小港區';
                     Strli += '<li class="col-md-6 show-area-li"><div class="show-area-li-area"><div class="show-arae-pic" style="background-image:url(' + pic + ')"></div><h4 class="show-title">' + name + '</h4><p class=""><span class="open-hours">' + openTime + '</span></p><p class=""><span class="address">' + address + '</span></p><p class=""><span class="phone">' + phone + '</span></p></div></li>'
+                    var marker = new google.maps.Marker({
+                        position: { lat: parseFloat(el[i].Py), lng: parseFloat(el[i].Px) },
+                        map: map,
+                        title: el[i].Name
+                    });
                 }
             }
             showUl.innerHTML = Strli;
             break;
         case '六龜區':
+            map = new google.maps.Map(document.getElementById('map'), {
+                center: { lat: 22.8759419, lng: 120.4022995 },
+                zoom: 9,
+            });
             for (let i = 0; i < len; i++) {
                 if (el[i].Zone == '六龜區') {
                     var name = el[i].Name;
@@ -2700,11 +2760,20 @@ function checked(e) {
                     var phone = el[i].Tel;
                     showTitle.textContent = '六龜區';
                     Strli += '<li class="col-md-6 show-area-li"><div class="show-area-li-area"><div class="show-arae-pic" style="background-image:url(' + pic + ')"></div><h4 class="show-title">' + name + '</h4><p class=""><span class="open-hours">' + openTime + '</span></p><p class=""><span class="address">' + address + '</span></p><p class=""><span class="phone">' + phone + '</span></p></div></li>'
+                    var marker = new google.maps.Marker({
+                        position: { lat: parseFloat(el[i].Py), lng: parseFloat(el[i].Px) },
+                        map: map,
+                        title: el[i].Name
+                    });
                 }
             }
             showUl.innerHTML = Strli;
             break;
         case '仁武區':
+            map = new google.maps.Map(document.getElementById('map'), {
+                center: { lat: 22.8759419, lng: 120.4022995 },
+                zoom: 9,
+            });
             for (let i = 0; i < len; i++) {
                 if (el[i].Zone == '仁武區') {
                     var name = el[i].Name;
@@ -2714,11 +2783,20 @@ function checked(e) {
                     var phone = el[i].Tel;
                     showTitle.textContent = '仁武區';
                     Strli += '<li class="col-md-6 show-area-li"><div class="show-area-li-area"><div class="show-arae-pic" style="background-image:url(' + pic + ')"></div><h4 class="show-title">' + name + '</h4><p class=""><span class="open-hours">' + openTime + '</span></p><p class=""><span class="address">' + address + '</span></p><p class=""><span class="phone">' + phone + '</span></p></div></li>'
+                    var marker = new google.maps.Marker({
+                        position: { lat: parseFloat(el[i].Py), lng: parseFloat(el[i].Px) },
+                        map: map,
+                        title: el[i].Name
+                    });
                 }
             }
             showUl.innerHTML = Strli;
             break;
         case '左營區':
+            map = new google.maps.Map(document.getElementById('map'), {
+                center: { lat: 22.8759419, lng: 120.4022995 },
+                zoom: 9,
+            });
             for (let i = 0; i < len; i++) {
                 if (el[i].Zone == '左營區') {
                     var name = el[i].Name;
@@ -2728,11 +2806,20 @@ function checked(e) {
                     var phone = el[i].Tel;
                     showTitle.textContent = '左營區';
                     Strli += '<li class="col-md-6 show-area-li"><div class="show-area-li-area"><div class="show-arae-pic" style="background-image:url(' + pic + ')"></div><h4 class="show-title">' + name + '</h4><p class=""><span class="open-hours">' + openTime + '</span></p><p class=""><span class="address">' + address + '</span></p><p class=""><span class="phone">' + phone + '</span></p></div></li>'
+                    var marker = new google.maps.Marker({
+                        position: { lat: parseFloat(el[i].Py), lng: parseFloat(el[i].Px) },
+                        map: map,
+                        title: el[i].Name
+                    });
                 }
             }
             showUl.innerHTML = Strli;
             break;
         case '田寮區':
+            map = new google.maps.Map(document.getElementById('map'), {
+                center: { lat: 22.8759419, lng: 120.4022995 },
+                zoom: 9,
+            });
             for (let i = 0; i < len; i++) {
                 if (el[i].Zone == '田寮區') {
                     var name = el[i].Name;
@@ -2742,11 +2829,20 @@ function checked(e) {
                     var phone = el[i].Tel;
                     showTitle.textContent = '田寮區';
                     Strli += '<li class="col-md-6 show-area-li"><div class="show-area-li-area"><div class="show-arae-pic" style="background-image:url(' + pic + ')"></div><h4 class="show-title">' + name + '</h4><p class=""><span class="open-hours">' + openTime + '</span></p><p class=""><span class="address">' + address + '</span></p><p class=""><span class="phone">' + phone + '</span></p></div></li>'
+                    var marker = new google.maps.Marker({
+                        position: { lat: parseFloat(el[i].Py), lng: parseFloat(el[i].Px) },
+                        map: map,
+                        title: el[i].Name
+                    });
                 }
             }
             showUl.innerHTML = Strli;
             break;
         case '永安區':
+            map = new google.maps.Map(document.getElementById('map'), {
+                center: { lat: 22.8759419, lng: 120.4022995 },
+                zoom: 9,
+            });
             for (let i = 0; i < len; i++) {
                 if (el[i].Zone == '永安區') {
                     var name = el[i].Name;
@@ -2756,11 +2852,20 @@ function checked(e) {
                     var phone = el[i].Tel;
                     showTitle.textContent = '永安區';
                     Strli += '<li class="col-md-6 show-area-li"><div class="show-area-li-area"><div class="show-arae-pic" style="background-image:url(' + pic + ')"></div><h4 class="show-title">' + name + '</h4><p class=""><span class="open-hours">' + openTime + '</span></p><p class=""><span class="address">' + address + '</span></p><p class=""><span class="phone">' + phone + '</span></p></div></li>'
+                    var marker = new google.maps.Marker({
+                        position: { lat: parseFloat(el[i].Py), lng: parseFloat(el[i].Px) },
+                        map: map,
+                        title: el[i].Name
+                    });
                 }
             }
             showUl.innerHTML = Strli;
             break;
         case '甲仙區':
+            map = new google.maps.Map(document.getElementById('map'), {
+                center: { lat: 22.8759419, lng: 120.4022995 },
+                zoom: 9,
+            });
             for (let i = 0; i < len; i++) {
                 if (el[i].Zone == '甲仙區') {
                     var name = el[i].Name;
@@ -2770,11 +2875,20 @@ function checked(e) {
                     var phone = el[i].Tel;
                     showTitle.textContent = '甲仙區';
                     Strli += '<li class="col-md-6 show-area-li"><div class="show-area-li-area"><div class="show-arae-pic" style="background-image:url(' + pic + ')"></div><h4 class="show-title">' + name + '</h4><p class=""><span class="open-hours">' + openTime + '</span></p><p class=""><span class="address">' + address + '</span></p><p class=""><span class="phone">' + phone + '</span></p></div></li>'
+                    var marker = new google.maps.Marker({
+                        position: { lat: parseFloat(el[i].Py), lng: parseFloat(el[i].Px) },
+                        map: map,
+                        title: el[i].Name
+                    });
                 }
             }
             showUl.innerHTML = Strli;
             break;
         case '鼓山區':
+            map = new google.maps.Map(document.getElementById('map'), {
+                center: { lat: 22.8759419, lng: 120.4022995 },
+                zoom: 9,
+            });
             for (let i = 0; i < len; i++) {
                 if (el[i].Zone == '鼓山區') {
                     var name = el[i].Name;
@@ -2784,11 +2898,20 @@ function checked(e) {
                     var phone = el[i].Tel;
                     showTitle.textContent = '鼓山區';
                     Strli += '<li class="col-md-6 show-area-li"><div class="show-area-li-area"><div class="show-arae-pic" style="background-image:url(' + pic + ')"></div><h4 class="show-title">' + name + '</h4><p class=""><span class="open-hours">' + openTime + '</span></p><p class=""><span class="address">' + address + '</span></p><p class=""><span class="phone">' + phone + '</span></p></div></li>'
+                    var marker = new google.maps.Marker({
+                        position: { lat: parseFloat(el[i].Py), lng: parseFloat(el[i].Px) },
+                        map: map,
+                        title: el[i].Name
+                    });
                 }
             }
             showUl.innerHTML = Strli;
             break;
         case '杉林區':
+            map = new google.maps.Map(document.getElementById('map'), {
+                center: { lat: 22.8759419, lng: 120.4022995 },
+                zoom: 9,
+            });
             for (let i = 0; i < len; i++) {
                 if (el[i].Zone == '杉林區') {
                     var name = el[i].Name;
@@ -2798,11 +2921,20 @@ function checked(e) {
                     var phone = el[i].Tel;
                     showTitle.textContent = '杉林區';
                     Strli += '<li class="col-md-6 show-area-li"><div class="show-area-li-area"><div class="show-arae-pic" style="background-image:url(' + pic + ')"></div><h4 class="show-title">' + name + '</h4><p class=""><span class="open-hours">' + openTime + '</span></p><p class=""><span class="address">' + address + '</span></p><p class=""><span class="phone">' + phone + '</span></p></div></li>'
+                    var marker = new google.maps.Marker({
+                        position: { lat: parseFloat(el[i].Py), lng: parseFloat(el[i].Px) },
+                        map: map,
+                        title: el[i].Name
+                    });
                 }
             }
             showUl.innerHTML = Strli;
             break;
         case '那瑪夏':
+            map = new google.maps.Map(document.getElementById('map'), {
+                center: { lat: 22.8759419, lng: 120.4022995 },
+                zoom: 9,
+            });
             for (let i = 0; i < len; i++) {
                 if (el[i].Zone == '那瑪夏') {
                     var name = el[i].Name;
@@ -2812,11 +2944,20 @@ function checked(e) {
                     var phone = el[i].Tel;
                     showTitle.textContent = '那瑪夏';
                     Strli += '<li class="col-md-6 show-area-li"><div class="show-area-li-area"><div class="show-arae-pic" style="background-image:url(' + pic + ')"></div><h4 class="show-title">' + name + '</h4><p class=""><span class="open-hours">' + openTime + '</span></p><p class=""><span class="address">' + address + '</span></p><p class=""><span class="phone">' + phone + '</span></p></div></li>'
+                    var marker = new google.maps.Marker({
+                        position: { lat: parseFloat(el[i].Py), lng: parseFloat(el[i].Px) },
+                        map: map,
+                        title: el[i].Name
+                    });
                 }
             }
             showUl.innerHTML = Strli;
             break;
         case '岡山區':
+            map = new google.maps.Map(document.getElementById('map'), {
+                center: { lat: 22.8759419, lng: 120.4022995 },
+                zoom: 9,
+            });
             for (let i = 0; i < len; i++) {
                 if (el[i].Zone == '岡山區') {
                     var name = el[i].Name;
@@ -2826,11 +2967,20 @@ function checked(e) {
                     var phone = el[i].Tel;
                     showTitle.textContent = '岡山區';
                     Strli += '<li class="col-md-6 show-area-li"><div class="show-area-li-area"><div class="show-arae-pic" style="background-image:url(' + pic + ')"></div><h4 class="show-title">' + name + '</h4><p class=""><span class="open-hours">' + openTime + '</span></p><p class=""><span class="address">' + address + '</span></p><p class=""><span class="phone">' + phone + '</span></p></div></li>'
+                    var marker = new google.maps.Marker({
+                        position: { lat: parseFloat(el[i].Py), lng: parseFloat(el[i].Px) },
+                        map: map,
+                        title: el[i].Name
+                    });
                 }
             }
             showUl.innerHTML = Strli;
             break;
         case '高雄市':
+            map = new google.maps.Map(document.getElementById('map'), {
+                center: { lat: 22.8759419, lng: 120.4022995 },
+                zoom: 9,
+            });
             for (let i = 0; i < len; i++) {
                 if (el[i].Zone == '高雄市') {
                     var name = el[i].Name;
@@ -2840,11 +2990,20 @@ function checked(e) {
                     var phone = el[i].Tel;
                     showTitle.textContent = '高雄市';
                     Strli += '<li class="col-md-6 show-area-li"><div class="show-area-li-area"><div class="show-arae-pic" style="background-image:url(' + pic + ')"></div><h4 class="show-title">' + name + '</h4><p class=""><span class="open-hours">' + openTime + '</span></p><p class=""><span class="address">' + address + '</span></p><p class=""><span class="phone">' + phone + '</span></p></div></li>'
+                    var marker = new google.maps.Marker({
+                        position: { lat: parseFloat(el[i].Py), lng: parseFloat(el[i].Px) },
+                        map: map,
+                        title: el[i].Name
+                    });
                 }
             }
             showUl.innerHTML = Strli;
             break;
         case '前鎮區':
+            map = new google.maps.Map(document.getElementById('map'), {
+                center: { lat: 22.8759419, lng: 120.4022995 },
+                zoom: 9,
+            });
             for (let i = 0; i < len; i++) {
                 if (el[i].Zone == '前鎮區') {
                     var name = el[i].Name;
@@ -2854,11 +3013,20 @@ function checked(e) {
                     var phone = el[i].Tel;
                     showTitle.textContent = '前鎮區';
                     Strli += '<li class="col-md-6 show-area-li"><div class="show-area-li-area"><div class="show-arae-pic" style="background-image:url(' + pic + ')"></div><h4 class="show-title">' + name + '</h4><p class=""><span class="open-hours">' + openTime + '</span></p><p class=""><span class="address">' + address + '</span></p><p class=""><span class="phone">' + phone + '</span></p></div></li>'
+                    var marker = new google.maps.Marker({
+                        position: { lat: parseFloat(el[i].Py), lng: parseFloat(el[i].Px) },
+                        map: map,
+                        title: el[i].Name
+                    });
                 }
             }
             showUl.innerHTML = Strli;
             break;
         case '新興區':
+            map = new google.maps.Map(document.getElementById('map'), {
+                center: { lat: 22.8759419, lng: 120.4022995 },
+                zoom: 9,
+            });
             for (let i = 0; i < len; i++) {
                 if (el[i].Zone == '新興區') {
                     var name = el[i].Name;
@@ -2868,11 +3036,20 @@ function checked(e) {
                     var phone = el[i].Tel;
                     showTitle.textContent = '新興區';
                     Strli += '<li class="col-md-6 show-area-li"><div class="show-area-li-area"><div class="show-arae-pic" style="background-image:url(' + pic + ')"></div><h4 class="show-title">' + name + '</h4><p class=""><span class="open-hours">' + openTime + '</span></p><p class=""><span class="address">' + address + '</span></p><p class=""><span class="phone">' + phone + '</span></p></div></li>'
+                    var marker = new google.maps.Marker({
+                        position: { lat: parseFloat(el[i].Py), lng: parseFloat(el[i].Px) },
+                        map: map,
+                        title: el[i].Name
+                    });
                 }
             }
             showUl.innerHTML = Strli;
             break;
         case '苓雅區':
+            map = new google.maps.Map(document.getElementById('map'), {
+                center: { lat: 22.8759419, lng: 120.4022995 },
+                zoom: 9,
+            });
             for (let i = 0; i < len; i++) {
                 if (el[i].Zone == '苓雅區') {
                     var name = el[i].Name;
@@ -2882,11 +3059,20 @@ function checked(e) {
                     var phone = el[i].Tel;
                     showTitle.textContent = '苓雅區';
                     Strli += '<li class="col-md-6 show-area-li"><div class="show-area-li-area"><div class="show-arae-pic" style="background-image:url(' + pic + ')"></div><h4 class="show-title">' + name + '</h4><p class=""><span class="open-hours">' + openTime + '</span></p><p class=""><span class="address">' + address + '</span></p><p class=""><span class="phone">' + phone + '</span></p></div></li>'
+                    var marker = new google.maps.Marker({
+                        position: { lat: parseFloat(el[i].Py), lng: parseFloat(el[i].Px) },
+                        map: map,
+                        title: el[i].Name
+                    });
                 }
             }
             showUl.innerHTML = Strli;
             break;
         case '茂林區':
+            map = new google.maps.Map(document.getElementById('map'), {
+                center: { lat: 22.8759419, lng: 120.4022995 },
+                zoom: 9,
+            });
             for (let i = 0; i < len; i++) {
                 if (el[i].Zone == '茂林區') {
                     var name = el[i].Name;
@@ -2896,11 +3082,20 @@ function checked(e) {
                     var phone = el[i].Tel;
                     showTitle.textContent = '茂林區';
                     Strli += '<li class="col-md-6 show-area-li"><div class="show-area-li-area"><div class="show-arae-pic" style="background-image:url(' + pic + ')"></div><h4 class="show-title">' + name + '</h4><p class=""><span class="open-hours">' + openTime + '</span></p><p class=""><span class="address">' + address + '</span></p><p class=""><span class="phone">' + phone + '</span></p></div></li>'
+                    var marker = new google.maps.Marker({
+                        position: { lat: parseFloat(el[i].Py), lng: parseFloat(el[i].Px) },
+                        map: map,
+                        title: el[i].Name
+                    });
                 }
             }
             showUl.innerHTML = Strli;
             break;
         case '茄萣區':
+            map = new google.maps.Map(document.getElementById('map'), {
+                center: { lat: 22.8759419, lng: 120.4022995 },
+                zoom: 9,
+            });
             for (let i = 0; i < len; i++) {
                 if (el[i].Zone == '茄萣區') {
                     var name = el[i].Name;
@@ -2910,11 +3105,20 @@ function checked(e) {
                     var phone = el[i].Tel;
                     showTitle.textContent = '茄萣區';
                     Strli += '<li class="col-md-6 show-area-li"><div class="show-area-li-area"><div class="show-arae-pic" style="background-image:url(' + pic + ')"></div><h4 class="show-title">' + name + '</h4><p class=""><span class="open-hours">' + openTime + '</span></p><p class=""><span class="address">' + address + '</span></p><p class=""><span class="phone">' + phone + '</span></p></div></li>'
+                    var marker = new google.maps.Marker({
+                        position: { lat: parseFloat(el[i].Py), lng: parseFloat(el[i].Px) },
+                        map: map,
+                        title: el[i].Name
+                    });
                 }
             }
             showUl.innerHTML = Strli;
             break;
         case '梓官區':
+            map = new google.maps.Map(document.getElementById('map'), {
+                center: { lat: 22.8759419, lng: 120.4022995 },
+                zoom: 9,
+            });
             for (let i = 0; i < len; i++) {
                 if (el[i].Zone == '梓官區') {
                     var name = el[i].Name;
@@ -2924,11 +3128,20 @@ function checked(e) {
                     var phone = el[i].Tel;
                     showTitle.textContent = '梓官區';
                     Strli += '<li class="col-md-6 show-area-li"><div class="show-area-li-area"><div class="show-arae-pic" style="background-image:url(' + pic + ')"></div><h4 class="show-title">' + name + '</h4><p class=""><span class="open-hours">' + openTime + '</span></p><p class=""><span class="address">' + address + '</span></p><p class=""><span class="phone">' + phone + '</span></p></div></li>'
+                    var marker = new google.maps.Marker({
+                        position: { lat: parseFloat(el[i].Py), lng: parseFloat(el[i].Px) },
+                        map: map,
+                        title: el[i].Name
+                    });
                 }
             }
             showUl.innerHTML = Strli;
             break;
         case '旗津區':
+            map = new google.maps.Map(document.getElementById('map'), {
+                center: { lat: 22.8759419, lng: 120.4022995 },
+                zoom: 9,
+            });
             for (let i = 0; i < len; i++) {
                 if (el[i].Zone == '旗津區') {
                     var name = el[i].Name;
@@ -2938,11 +3151,20 @@ function checked(e) {
                     var phone = el[i].Tel;
                     showTitle.textContent = '旗津區';
                     Strli += '<li class="col-md-6 show-area-li"><div class="show-area-li-area"><div class="show-arae-pic" style="background-image:url(' + pic + ')"></div><h4 class="show-title">' + name + '</h4><p class=""><span class="open-hours">' + openTime + '</span></p><p class=""><span class="address">' + address + '</span></p><p class=""><span class="phone">' + phone + '</span></p></div></li>'
+                    var marker = new google.maps.Marker({
+                        position: { lat: parseFloat(el[i].Py), lng: parseFloat(el[i].Px) },
+                        map: map,
+                        title: el[i].Name
+                    });
                 }
             }
             showUl.innerHTML = Strli;
             break;
         case '桃源區':
+            map = new google.maps.Map(document.getElementById('map'), {
+                center: { lat: 22.8759419, lng: 120.4022995 },
+                zoom: 9,
+            });
             for (let i = 0; i < len; i++) {
                 if (el[i].Zone == '桃源區') {
                     var name = el[i].Name;
@@ -2952,11 +3174,20 @@ function checked(e) {
                     var phone = el[i].Tel;
                     showTitle.textContent = '桃源區';
                     Strli += '<li class="col-md-6 show-area-li"><div class="show-area-li-area"><div class="show-arae-pic" style="background-image:url(' + pic + ')"></div><h4 class="show-title">' + name + '</h4><p class=""><span class="open-hours">' + openTime + '</span></p><p class=""><span class="address">' + address + '</span></p><p class=""><span class="phone">' + phone + '</span></p></div></li>'
+                    var marker = new google.maps.Marker({
+                        position: { lat: parseFloat(el[i].Py), lng: parseFloat(el[i].Px) },
+                        map: map,
+                        title: el[i].Name
+                    });
                 }
             }
             showUl.innerHTML = Strli;
             break;
         case '楠梓區':
+            map = new google.maps.Map(document.getElementById('map'), {
+                center: { lat: 22.8759419, lng: 120.4022995 },
+                zoom: 9,
+            });
             for (let i = 0; i < len; i++) {
                 if (el[i].Zone == '楠梓區') {
                     var name = el[i].Name;
@@ -2966,11 +3197,20 @@ function checked(e) {
                     var phone = el[i].Tel;
                     showTitle.textContent = '楠梓區';
                     Strli += '<li class="col-md-6 show-area-li"><div class="show-area-li-area"><div class="show-arae-pic" style="background-image:url(' + pic + ')"></div><h4 class="show-title">' + name + '</h4><p class=""><span class="open-hours">' + openTime + '</span></p><p class=""><span class="address">' + address + '</span></p><p class=""><span class="phone">' + phone + '</span></p></div></li>'
+                    var marker = new google.maps.Marker({
+                        position: { lat: parseFloat(el[i].Py), lng: parseFloat(el[i].Px) },
+                        map: map,
+                        title: el[i].Name
+                    });
                 }
             }
             showUl.innerHTML = Strli;
             break;
         case '前金區':
+            map = new google.maps.Map(document.getElementById('map'), {
+                center: { lat: 22.8759419, lng: 120.4022995 },
+                zoom: 9,
+            });
             for (let i = 0; i < len; i++) {
                 if (el[i].Zone == '前金區') {
                     var name = el[i].Name;
@@ -2980,11 +3220,20 @@ function checked(e) {
                     var phone = el[i].Tel;
                     showTitle.textContent = '前金區';
                     Strli += '<li class="col-md-6 show-area-li"><div class="show-area-li-area"><div class="show-arae-pic" style="background-image:url(' + pic + ')"></div><h4 class="show-title">' + name + '</h4><p class=""><span class="open-hours">' + openTime + '</span></p><p class=""><span class="address">' + address + '</span></p><p class=""><span class="phone">' + phone + '</span></p></div></li>'
+                    var marker = new google.maps.Marker({
+                        position: { lat: parseFloat(el[i].Py), lng: parseFloat(el[i].Px) },
+                        map: map,
+                        title: el[i].Name
+                    });
                 }
             }
             showUl.innerHTML = Strli;
             break;
         case '鳳山區':
+            map = new google.maps.Map(document.getElementById('map'), {
+                center: { lat: 22.8759419, lng: 120.4022995 },
+                zoom: 9,
+            });
             for (let i = 0; i < len; i++) {
                 if (el[i].Zone == '鳳山區') {
                     var name = el[i].Name;
@@ -2994,6 +3243,11 @@ function checked(e) {
                     var phone = el[i].Tel;
                     showTitle.textContent = '鳳山區';
                     Strli += '<li class="col-md-6 show-area-li"><div class="show-area-li-area"><div class="show-arae-pic" style="background-image:url(' + pic + ')"></div><h4 class="show-title">' + name + '</h4><p class=""><span class="open-hours">' + openTime + '</span></p><p class=""><span class="address">' + address + '</span></p><p class=""><span class="phone">' + phone + '</span></p></div></li>'
+                    var marker = new google.maps.Marker({
+                        position: { lat: parseFloat(el[i].Py), lng: parseFloat(el[i].Px) },
+                        map: map,
+                        title: el[i].Name
+                    });
                 }
             }
             showUl.innerHTML = Strli;
@@ -3011,6 +3265,10 @@ function hotArea(e) {
     console.log(hotStr);
     switch (hotStr) {
         case '苓雅區':
+            map = new google.maps.Map(document.getElementById('map'), {
+                center: { lat: 22.8759419, lng: 120.4022995 },
+                zoom: 9,
+            });
             for (let i = 0; i < len; i++) {
                 if (el[i].Zone == '苓雅區') {
                     var name = el[i].Name;
@@ -3020,11 +3278,20 @@ function hotArea(e) {
                     var phone = el[i].Tel;
                     showTitle.textContent = '苓雅區';
                     Strli += '<li class="col-md-6 show-area-li"><div class="show-area-li-area"><div class="show-arae-pic" style="background-image:url(' + pic + ')"></div><h4 class="show-title">' + name + '</h4><p class=""><span class="open-hours">' + openTime + '</span></p><p class=""><span class="address">' + address + '</span></p><p class=""><span class="phone">' + phone + '</span></p></div></li>'
+                    var marker = new google.maps.Marker({
+                        position: { lat: parseFloat(el[i].Py), lng: parseFloat(el[i].Px) },
+                        map: map,
+                        title: el[i].Name
+                    });
                 }
             }
             showUl.innerHTML = Strli;
             break;
         case '三民區':
+            map = new google.maps.Map(document.getElementById('map'), {
+                center: { lat: 22.8759419, lng: 120.4022995 },
+                zoom: 9,
+            });
             for (let i = 0; i < len; i++) {
                 if (el[i].Zone == '三民區') {
                     var name = el[i].Name;
@@ -3034,11 +3301,20 @@ function hotArea(e) {
                     var phone = el[i].Tel;
                     showTitle.textContent = '三民區';
                     Strli += '<li class="col-md-6 show-area-li"><div class="show-area-li-area"><div class="show-arae-pic" style="background-image:url(' + pic + ')"></div><h4 class="show-title">' + name + '</h4><p class=""><span class="open-hours">' + openTime + '</span></p><p class=""><span class="address">' + address + '</span></p><p class=""><span class="phone">' + phone + '</span></p></div></li>'
+                    var marker = new google.maps.Marker({
+                        position: { lat: parseFloat(el[i].Py), lng: parseFloat(el[i].Px) },
+                        map: map,
+                        title: el[i].Name
+                    });
                 }
             }
             showUl.innerHTML = Strli;
             break;
         case '新興區':
+            map = new google.maps.Map(document.getElementById('map'), {
+                center: { lat: 22.8759419, lng: 120.4022995 },
+                zoom: 9,
+            });
             for (let i = 0; i < len; i++) {
                 if (el[i].Zone == '新興區') {
                     var name = el[i].Name;
@@ -3048,12 +3324,21 @@ function hotArea(e) {
                     var phone = el[i].Tel;
                     showTitle.textContent = '新興區';
                     Strli += '<li class="col-md-6 show-area-li"><div class="show-area-li-area"><div class="show-arae-pic" style="background-image:url(' + pic + ')"></div><h4 class="show-title">' + name + '</h4><p class=""><span class="open-hours">' + openTime + '</span></p><p class=""><span class="address">' + address + '</span></p><p class=""><span class="phone">' + phone + '</span></p></div></li>'
+                    var marker = new google.maps.Marker({
+                        position: { lat: parseFloat(el[i].Py), lng: parseFloat(el[i].Px) },
+                        map: map,
+                        title: el[i].Name
+                    });
                 }
             }
             showUl.innerHTML = Strli;
             break;
             ;
-            case '美濃區':
+        case '美濃區':
+            map = new google.maps.Map(document.getElementById('map'), {
+                center: { lat: 22.8759419, lng: 120.4022995 },
+                zoom: 9,
+            });
             for (let i = 0; i < len; i++) {
                 if (el[i].Zone == '美濃區') {
                     var name = el[i].Name;
@@ -3063,6 +3348,11 @@ function hotArea(e) {
                     var phone = el[i].Tel;
                     showTitle.textContent = '美濃區';
                     Strli += '<li class="col-md-6 show-area-li"><div class="show-area-li-area"><div class="show-arae-pic" style="background-image:url(' + pic + ')"></div><h4 class="show-title">' + name + '</h4><p class=""><span class="open-hours">' + openTime + '</span></p><p class=""><span class="address">' + address + '</span></p><p class=""><span class="phone">' + phone + '</span></p></div></li>'
+                    var marker = new google.maps.Marker({
+                        position: { lat: parseFloat(el[i].Py), lng: parseFloat(el[i].Px) },
+                        map: map,
+                        title: el[i].Name
+                    });
                 }
             }
             showUl.innerHTML = Strli;

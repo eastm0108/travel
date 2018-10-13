@@ -10297,4 +10297,9 @@ html body {
   background-position: center center;
   background-image: url("http://khh.travel/FileArtPic.ashx?id=705&w=1280&h=960");
 }
+
+#map {
+  height: 300px;
+  margin: 2rem 1rem;
+}
 /*# sourceMappingURL=all.css.map */
