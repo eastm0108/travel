@@ -10299,7 +10299,8 @@ html body {
 }
 
 #map {
-  height: 300px;
-  margin: 2rem 1rem;
+  height: 350px;
+  max-width: 600px;
+  margin: 2rem auto;
 }
 /*# sourceMappingURL=all.css.map */

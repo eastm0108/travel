@@ -192,6 +192,7 @@ html body{
     background-image: url("http://khh.travel/FileArtPic.ashx?id=705&w=1280&h=960");
 }
 #map{
-    height: 300px;
-    margin: 2rem 1rem;
+    height: 350px;
+    max-width: 600px;
+    margin: 2rem auto;
 }
